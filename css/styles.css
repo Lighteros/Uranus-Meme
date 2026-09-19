@@ -350,8 +350,9 @@ footer {
 .orbit-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(200, 224, 245, 0.16);
+  border: 1px solid rgba(200, 224, 245, 0.32);
   transform: rotateX(68deg) rotateZ(-18deg);
+  box-shadow: 0 0 24px rgba(150, 200, 235, 0.08);
 }
 
 .r-near { width: 78%; height: 78%; animation: spin 18s linear infinite; }
@@ -554,6 +555,13 @@ section {
   padding: 6.5rem 6vw;
 }
 
+.about,
+.howtobuy,
+.chart,
+.joinus {
+  background: linear-gradient(180deg, rgba(8, 16, 28, 0.35), transparent 18%, transparent 82%, rgba(8, 16, 28, 0.28));
+}
+
 .section-head {
   max-width: 720px;
   margin: 0 auto 3.2rem;
@@ -585,10 +593,10 @@ section {
 .dock,
 .join-card,
 .aperture {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 224, 245, 0.22);
   background:
-    linear-gradient(180deg, rgba(201, 224, 245, 0.05), transparent 38%),
-    rgba(6, 12, 22, 0.55);
+    linear-gradient(180deg, rgba(201, 224, 245, 0.08), transparent 38%),
+    rgba(8, 16, 28, 0.72);
 }
 
 .slab {
@@ -822,19 +830,12 @@ section {
 }
 
 .rise {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: rise-in 0.85s ease both;
 }
 
-.rise.in {
-  opacity: 1;
-  transform: none;
-}
-
-.d1 { transition-delay: 0.12s; }
-.d2 { transition-delay: 0.24s; }
-.d3 { transition-delay: 0.36s; }
+.d1 { animation-delay: 0.12s; }
+.d2 { animation-delay: 0.24s; }
+.d3 { animation-delay: 0.36s; }
 
 @keyframes aurora-drift {
   from { transform: translate3d(0, 0, 0) scale(1); }
@@ -877,6 +878,17 @@ section {
 @keyframes sweep {
   0% { transform: translateX(-40%); }
   100% { transform: translateX(40%); }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 980px) {
